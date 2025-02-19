@@ -2,18 +2,58 @@
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .form {
   display: flex;
-  gap: 8px;
-  margin-top: 30px;
-  text-align: center;
+  column-gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
 }
-.form-input {
+
+.user-input {
   width: 272px;
   height: 40px;
   border-radius: 4px;
@@ -28,7 +68,7 @@
   color: #2e2f42;
 }
 
-.form-input::placeholder {
+.user-input::placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -36,10 +76,11 @@
   color: #808080;
 }
 
-.form-input:hover {
+.user-input:hover {
   border: 1px solid #000000;
 }
-.form-input:focus {
+
+.user-input:focus {
   border: 1px solid #4e75ff;
 }
 
@@ -60,4 +101,26 @@
 .form-button:hover,
 .form-button:focus {
   background-color: #6c8cff;
+}
+
+/* ============== Styles for Mobile devices =============== */
+
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
 }
