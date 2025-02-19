@@ -23,6 +23,8 @@ export const refs = {
 
 refs.form.addEventListener('submit', e => {
   e.preventDefault();
+
+  refs.gallery.innerHTML = '';
   const userInput = e.target.elements.image.value.trim();
 
   refs.gallery.innerHTML =
@@ -35,7 +37,6 @@ refs.form.addEventListener('submit', e => {
           ...iziToastOptions,
           message: 'No images found. Try a different search term!',
         });
-        refs.gallery.innerHTML = '';
         return;
       }
       renderGallery(images);
