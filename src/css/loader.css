@@ -37,11 +37,6 @@
   }
 }
 
-.loader-text {
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  color: #2e2f42;
-  margin: 0 auto;
-  text-align: center;
+.hidden {
+  display: none;
 }

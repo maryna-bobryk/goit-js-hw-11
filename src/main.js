@@ -27,12 +27,20 @@ refs.form.addEventListener('submit', e => {
   refs.gallery.innerHTML = '';
   const userInput = e.target.elements.image.value.trim();
 
-  refs.gallery.innerHTML =
-    '<p class ="loader-text">Wait, the image is loaded</p><span class="loader"></span>';
+  if (!userInput) {
+    iziToast.show({
+      ...iziToastOptions,
+      message: 'Please enter a search term!',
+    });
+    return;
+  }
+
+  refs.loader.classList.remove('hidden');
 
   getImage(userInput)
     .then(images => {
-      if (!userInput || images.length === 0) {
+      refs.loader.classList.add('hidden');
+      if (images.length === 0) {
         iziToast.show({
           ...iziToastOptions,
           message: 'No images found. Try a different search term!',
@@ -42,6 +50,7 @@ refs.form.addEventListener('submit', e => {
       renderGallery(images);
     })
     .catch(err => {
+      refs.loader.classList.add('hidden');
       iziToast.show({
         ...iziToastOptions,
         message: 'Oops! Something went wrong. Please try again later.',
@@ -49,31 +58,3 @@ refs.form.addEventListener('submit', e => {
       console.log(err);
     });
 });
-
-// ! ==========================================================
-// import { imagesTemplate } from './js/render-functions.js';
-
-// const lightbox = new SimpleLightbox('.gallery a', {
-//   captions: true,
-//   captionsData: 'alt',
-//   captionDelay: 250,
-//   overlayOpacity: 0.8,
-// });
-
-// getImage(userInput)
-//   .then(images => {
-//     if (!userInput || images.length === 0) {
-//       iziToast.show({
-//         ...iziToastOptions,
-//         message: 'No images found. Try a different search term!',
-//       });
-//       return;
-//     }
-//     const markup = imagesTemplate(images);
-//     refs.gallery.innerHTML = markup;
-//     lightbox.refresh();
-//   })
-// .catch(e => {
-//   console.log('Error images:', err);
-// });
-// });
