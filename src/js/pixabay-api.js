@@ -30,16 +30,3 @@ export function getImage(userInput) {
 // hits - Antwort von der Pixabay API - das JSON - Objekt.
 // Jedes Element in der hits - Liste ist ein Bildobjekt mit verschiedenen Eigenschaften,
 // wie z.B.der URL des Bildes, dem Titel, der Bildgröße und vielem mehr.
-
-// export function getImage(userInput) {
-//   const BASE_URL = 'https://pixabay.com/api/';
-//   const params = {
-//     q: userInput,
-//     image_type: 'photo',
-//     orientation: 'horizontal',
-//     safesearch: 'true',
-//     API_KEY: '23727869-9ab5af5c09b745cc02503bdaa',
-//   };
-
-//   return axios.get(BASE_URL, { params });
-// }

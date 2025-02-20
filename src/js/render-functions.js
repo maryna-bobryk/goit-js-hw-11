@@ -48,8 +48,3 @@ export function renderGallery(images) {
   refs.gallery.innerHTML = markup;
   lightbox.refresh();
 }
-
-// ! ==========================================================
-// export function imagesTemplate(images) {
-//   return images.map(imageTemplate).join('');
-// }
